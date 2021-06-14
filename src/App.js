@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from 'react';
+import Players from './players';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    playerOne: 0,
+    playerTwo: 0,
+    playerThree: 0
+  }
+
+  changeScore = (score, player) => {
+    console.log(player, score);
+    this.setState({
+      [player]: score
+    })
+  }
+
+  render () {
+    return (
+      <main>
+        <h1>Point Counter</h1>
+        <Players playerOne={this.state.playerOne} playerTwo={this.state.playerTwo} playerThree={this.state.playerThree} changeScore={this.changeScore}/>
+      </main>
+    )
+  }
 }
+
+
 
 export default App;

@@ -8,12 +8,10 @@ class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log('add!');
         this.props.addNewPlayer(this.state.input);
     }
 
     onChange = e => {
-        console.log(e.target.value);
         this.setState({
             input: e.target.value
         })
